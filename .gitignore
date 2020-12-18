@@ -1,0 +1,10 @@
+/*
+!/.gitignore
+!/app
+!/config
+!/gan
+!/.editorconfig
+!/example.config.yml
+!/go.mod
+!/main.go
+!/README.md

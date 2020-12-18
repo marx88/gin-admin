@@ -1,0 +1,45 @@
+app:
+  # 应用名称
+  name: gin-admin
+  # 服务器IP
+  host: 0.0.0.0
+  # 服务器端口号
+  port: 8080
+  # 环境：debug-开发，test-测试，release-生产
+  mode: release
+  # debug
+  debug: false
+
+db:
+  # 数据库类型
+  type: mysql
+  # 数据库服务器IP
+  host: 127.0.0.1
+  # 数据库端口
+  port: 3306
+  # 数据库名
+  database: gin_admin
+  # 数据库登录账号
+  username: root
+  # 数据库登录密码
+  password: root
+  # 数据库链接字符集
+  charset: utf8mb4
+
+jwt:
+  # token密钥，在prod环境设置个复杂的吧
+  secret: gin_admin_token_secrect
+  # token过期时间，单位：秒
+  timeout: 3600
+
+log:
+  # 日志存放路径
+  path: "temp/logs"
+  # 日志等级
+  level: all
+  # 控制台日志
+  stdout: true
+  # 业务日志开关
+  enabled_bus: true
+  # 请求日志开关
+  enabled_req: false
