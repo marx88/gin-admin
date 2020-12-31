@@ -1,6 +1,6 @@
 package config
 
-import "github.com/marx88/gin-admin/gan/lib/conf"
+import "github.com/marx88/gin-admin/gan/conf"
 
 type db struct {
 	Type     string `yaml:"type"`

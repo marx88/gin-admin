@@ -1,7 +1,7 @@
 package main
 
-import "github.com/marx88/gin-admin/gan"
+import "github.com/marx88/gin-admin/gan/bootstrap"
 
 func main() {
-	gan.Start()
+	bootstrap.Start()
 }

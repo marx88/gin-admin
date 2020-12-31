@@ -6,6 +6,7 @@
 
 - [Gin](https://github.com/gin-gonic/gin) :Web微框架，API友好
 - [Yaml](https://github.com/go-yaml/yaml) :读取`.yml`后缀的配置文件
+- [Captcha](https://github.com/mojocn/base64Captcha) :图形验证码
 
 
 ### 开发配置
