@@ -66,60 +66,68 @@ func (r *Response) Send(c *gin.Context) {
 
 // SuccessMsgData 成功
 func (r *Response) SuccessMsgData(c *gin.Context, msg string, data interface{}) {
-	r.code(CodeSuccess)
 	r.msg(msg)
 	r.data(data)
-	r.Send(c)
+	r.Success(c)
 }
 
 // SuccessMsg 成功
 func (r *Response) SuccessMsg(c *gin.Context, msg string) {
-	r.SuccessMsgData(c, msg, nil)
+	r.msg(msg)
+	r.Success(c)
 }
 
 // SuccessData 成功
 func (r *Response) SuccessData(c *gin.Context, data interface{}) {
-	r.SuccessMsgData(c, DefaultMsgSuccess, data)
+	r.msg(DefaultMsgSuccess)
+	r.data(data)
+	r.Success(c)
 }
 
 // Success 成功
 func (r *Response) Success(c *gin.Context) {
-	r.SuccessData(c, nil)
+	r.code(CodeSuccess)
+	r.Send(c)
 }
 
 // SuccessPage 成功分页
-func (r *Response) SuccessPage(c *gin.Context, total int, rows interface{}) {
+func (r *Response) SuccessPage(c *gin.Context, total int64, rows interface{}) {
 	r.Put(NameTotal, total)
 	r.Put(NameRows, rows)
+	r.msg(DefaultMsgSuccess)
 	r.Success(c)
 }
 
 // ErrorMsgData 失败
 func (r *Response) ErrorMsgData(c *gin.Context, msg string, data interface{}) {
-	r.code(CodeError)
 	r.msg(msg)
 	r.data(data)
-	r.Send(c)
+	r.Error(c)
 }
 
 // ErrorMsg 失败
 func (r *Response) ErrorMsg(c *gin.Context, msg string) {
-	r.ErrorMsgData(c, msg, nil)
+	r.msg(msg)
+	r.Error(c)
 }
 
 // ErrorData 失败
 func (r *Response) ErrorData(c *gin.Context, data interface{}) {
-	r.ErrorMsgData(c, DefaultMsgError, data)
+	r.msg(DefaultMsgError)
+	r.data(data)
+	r.Error(c)
 }
 
 // Error 失败
 func (r *Response) Error(c *gin.Context) {
-	r.ErrorData(c, nil)
+	r.code(CodeError)
+	r.Send(c)
 }
 
 // ErrorPage 分页失败
-func (r *Response) ErrorPage(c *gin.Context, total int, rows interface{}) {
-	r.Put(NameTotal, total)
-	r.Put(NameRows, rows)
+func (r *Response) ErrorPage(c *gin.Context, msg string) {
+	r.Put(NameTotal, 0)
+	r.Put(NameRows, nil)
+	r.msg(msg)
 	r.Error(c)
 }

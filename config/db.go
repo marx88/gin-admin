@@ -5,7 +5,7 @@ import "github.com/marx88/gin-admin/gan/conf"
 type db struct {
 	Type     string `yaml:"type"`
 	Host     string `yaml:"host"`
-	Post     string `yaml:"port"`
+	Port     string `yaml:"port"`
 	Database string `yaml:"database"`
 	UserName string `yaml:"username"`
 	Password string `yaml:"password"`

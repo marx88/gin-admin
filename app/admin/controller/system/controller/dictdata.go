@@ -40,5 +40,23 @@ func (cp *DictDataController) Export(c *gin.Context) {
 
 // DictType 根据字典类型查询字典数据信息
 func (cp *DictDataController) DictType(c *gin.Context) {
-	response.Success(c)
+	response.SuccessData(c, []gin.H{{
+		"createBy":    "admin",
+		"createTime":  "2020-11-20 19:29:50",
+		"cssClass":    "",
+		"default":     true,
+		"dictCode":    12,
+		"dictLabel":   "是",
+		"dictSort":    1,
+		"dictType":    "sys_yes_no",
+		"dictValue":   "Y",
+		"isDefault":   "Y",
+		"listClass":   "primary",
+		"params":      gin.H{},
+		"remark":      "系统默认是",
+		"searchValue": nil,
+		"status":      "0",
+		"updateBy":    nil,
+		"updateTime":  nil,
+	}})
 }

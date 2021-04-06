@@ -28,7 +28,7 @@ func Success(c *gin.Context) {
 }
 
 // SuccessPage 成功分页
-func SuccessPage(c *gin.Context, total int, rows interface{}) {
+func SuccessPage(c *gin.Context, total int64, rows interface{}) {
 	New().SuccessPage(c, total, rows)
 }
 
@@ -53,6 +53,6 @@ func Error(c *gin.Context) {
 }
 
 // ErrorPage 分页失败
-func ErrorPage(c *gin.Context, total int, rows interface{}) {
-	New().ErrorPage(c, total, rows)
+func ErrorPage(c *gin.Context, msg string) {
+	New().ErrorPage(c, msg)
 }

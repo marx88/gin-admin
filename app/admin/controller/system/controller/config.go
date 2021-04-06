@@ -2,6 +2,7 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/marx88/gin-admin/common/model"
 	"github.com/marx88/gin-admin/gan/excel"
 	"github.com/marx88/gin-admin/gan/response"
 )
@@ -11,7 +12,12 @@ type ConfigController struct{}
 
 // List 配置列表
 func (cp *ConfigController) List(c *gin.Context) {
-	response.SuccessPage(c, 0, nil)
+	list, total, err := model.ConfigList()
+	if err != nil {
+		response.ErrorPage(c, err.Error())
+		return
+	}
+	response.SuccessPage(c, total, list)
 }
 
 // Add 新增配置
